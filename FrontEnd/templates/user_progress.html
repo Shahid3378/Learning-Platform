@@ -1,12 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container mt-5" style="
-    border: 1px solid #ccc;
-    padding: 50px;
-    border-radius: 10px;
-    width: auto;
-    height: auto;">
+
+<div class="container mt-5" style="border: 1px solid #ccc; padding: 50px; border-radius: 10px; ">
     <h1>Your Progress</h1>
     <p>Here is an overview of your progress in the courses you are enrolled in:</p>
 
@@ -26,7 +22,7 @@
         </div>
     {% else %}
         <p>You have not made any progress in your enrolled courses yet.</p>
-        <a href="{{ url_for('course_list') }}" class="btn btn-primary mt-3">Browse Courses</a>
+        <a href="{{ url_for('course_list') }}" class="btn btn-primary mt-3" aria-label="Browse available courses">Browse Courses</a>
     {% endif %}
 
     <!-- Overall Progress Section -->
@@ -34,7 +30,8 @@
     {% if overall_progress is not none %}
     <div class="progress">
         <div class="progress-bar" role="progressbar" style="width: {{ overall_progress }}%;" 
-            aria-valuenow="{{ overall_progress }}" aria-valuemin="0" aria-valuemax="100">
+            aria-valuenow="{{ overall_progress }}" aria-valuemin="0" aria-valuemax="100" 
+            aria-label="Overall progress of {{ overall_progress }} percent">
             {{ overall_progress }}%
         </div>
     </div>
